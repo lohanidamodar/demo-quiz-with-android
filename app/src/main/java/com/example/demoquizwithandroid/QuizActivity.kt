@@ -28,7 +28,7 @@ class QuizActivity : AppCompatActivity() {
             questions ->
             if(questions != null) {
                 viewModel.selectedQuestion.observe(this, { index ->
-                    findViewById<TextView>(R.id.questionNumber).text = (index+1).toString() + "/" + questions.length()
+                    findViewById<TextView>(R.id.questionNumber).text = "Question ${(index+1)}/${questions.length()}"
                     currentQuestion = questions[index] as JSONObject
 
                     val options = currentQuestion!!["options"] as JSONArray

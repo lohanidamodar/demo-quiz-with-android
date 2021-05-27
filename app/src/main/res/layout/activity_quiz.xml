@@ -4,40 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="@color/darkslategray"
     tools:context=".QuizActivity">
 
     <TextView
         android:id="@+id/questionNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="5/15"
+        android:text="Question 5/15"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="@color/darkgray"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/dashedLine"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/dashed_line"
+        app:layout_constraintTop_toBottomOf="@id/questionNumber"
+        android:layerType="software" />
+
     <TextView
         android:id="@+id/question"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:text="Question"
-        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textSize="26sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/options"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/dashedLine" />
 
     <RadioGroup
         android:id="@+id/options"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnNext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question">
+        app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
             android:id="@+id/option1"
+            style="@style/optionRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Option 1"
@@ -46,18 +63,21 @@
 
         <RadioButton
             android:id="@+id/option2"
+            style="@style/optionRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Option 2" />
 
         <RadioButton
             android:id="@+id/option3"
+            style="@style/optionRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Option 3" />
 
         <RadioButton
             android:id="@+id/option4"
+            style="@style/optionRadioButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Option 4" />
@@ -65,13 +85,13 @@
 
     <Button
         android:id="@+id/btnNext"
+        style="@style/buttonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/options" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
