@@ -6,24 +6,24 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import io.appwrite.AppwriteClient
+import io.appwrite.Client
 import io.appwrite.exceptions.AppwriteException
-import io.appwrite.services.DatabaseService
+import io.appwrite.services.Database
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
 
 class QuizViewModel : ViewModel() {
     private val collectionId = "606d5bd9626ae"
-    lateinit var client : AppwriteClient
+    lateinit var client : Client
     fun create(context: Context) {
-        client = AppwriteClient(context)
+        client = Client(context)
             .setEndpoint("https://demo.appwrite.io/v1")
             .setProject("606d5bc9de604")
         getQuestions()
     }
     private val db by lazy {
-        DatabaseService(client)
+        Database(client)
     }
 
     private val _questions = MutableLiveData<JSONArray>().apply { value = null }
